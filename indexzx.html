@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { 
+            background: #000; 
+            color: #ff3333; 
+            font-family: 'Courier New', monospace; 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh;
+        }
+        .dashboard { 
+            border: 2px solid #ff3333; 
+            padding: 20px; 
+            max-width: 400px; 
+            width: 100%;
+            background: rgba(20, 0, 0, 0.9); 
+            box-shadow: 0 0 15px #ff3333; 
+            border-radius: 10px;
+        }
+        .suspect-img { 
+            width: 100%; 
+            border: 1px solid #ff3333; 
+            display: block;
+            margin-bottom: 15px;
+        }
+        h1 { 
+            text-align: center; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid #ff3333; 
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
+        .status { color: #fff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>تنبيه أمني - نشاط مريب</h1>
+        <img src="https://i.ibb.co/C34k8r4j/IMG-1484.jpg" class="suspect-img" alt="Suspect">
+        <p>الهوية: <span class="status">غير معروف</span></p>
+        <p>مستوى الخطر: <span class="status">عالي (Critical)</span></p>
+        <p>الحالة: <span class="status">تم رصد النشاط - جاري التحليل</span></p>
+    </div>
+</body>
+</html>
