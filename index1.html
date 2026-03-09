@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>نظام المراقبة الذكي - الرؤية الأمنية</title>
+    <style>
+        body {
+            background-color: #0a0a0b;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* القائمة الجانبية */
+        .sidebar {
+            width: 250px;
+            background-color: #121214;
+            border-left: 1px solid #2d2d30;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .status-card {
+            background: #1c1c1f;
+            padding: 15px;
+            border-radius: 8px;
+            border-right: 4px solid #34d399; /* أخضر للحالة الآمنة */
+        }
+
+        /* منطقة العرض الرئيسية */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        /* شبكة الكاميرات */
+        .camera-grid {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .cam-feed {
+            background: #000;
+            border: 1px solid #2d2d30;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cam-feed img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .cam-label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        /* لوحة التنبيهات */
+        .alert-panel {
+            background: #121214;
+            border: 1px solid #ff4d4d;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: inset 0 0 20px rgba(255, 77, 77, 0.1);
+        }
+
+        .alert-header {
+            color: #ff4d4d;
+            font-weight: bold;
+            border-bottom: 1px solid #2d2d30;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .data-row {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .data-label { color: #888; margin-left: 10px; }
+        .data-value { color: #fff; font-weight: bold; }
+        
+        .high-risk { color: #ff4d4d; text-transform: uppercase; }
+
+        .scan-line {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 77, 77, 0.5);
+            position: absolute;
+            top: 0;
+            animation: scan 3s infinite linear;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2 style="color: #34d399; font-size: 18px;">الرؤية الأمنية v1.0</h2>
+        <div class="status-card">
+            <div style="font-size: 12px; color: #888;">حالة النظام</div>
+            <div style="color: #34d399;">نشط - متصل</div>
+        </div>
+        <div class="status-card" style="border-right-color: #fbbf24;">
+            <div style="font-size: 12px; color: #888;">المواقع المراقبة</div>
+            <div>منشأة رقم 04 - الدمام</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="camera-grid">
+            <div class="cam-feed">
+                <div class="cam-label">CAM 01 - PERIMETER SCAN</div>
+                <div class="scan-line"></div>
+                <img src="https://i.ibb.co/VWVm0rP/infrastructure.jpg" alt="Critical Infrastructure">
+            </div>
+            <div class="cam-feed">
+                <div class="cam-label">CAM 02 - TACTICAL RESPONSE</div>
+                <img src="https://i.ibb.co/v4mS4Z4/soldier.jpg" alt="Soldier Tactical">
+            </div>
+        </div>
+
+        <div class="alert-panel">
+            <div class="alert-header">
+                <span>تنبيه أمني نظامي</span>
+                <span style="font-size: 12px;">🔴 LIVE</span>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="https://i.ibb.co/6P8v9qK/face-scan.jpg" style="width: 120px; border-radius: 50%; border: 2px solid #ff4d4d;" alt="Suspect">
+            </div>
+
+            <div class="data-row">
+                <span class="data-label">الهوية (Identity):</span>
+                <span class="data-value">Unknown / غير معروف</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">مستوى الخطر (Risk):</span>
+                <span class="data-value high-risk">High / عالي جداً</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">السلوك (Behavior):</span>
+                <span class="data-value">Suspicious / مريب</span>
+            </div>
+            <div class="data-row" style="margin-top: 30px; padding: 10px; background: #1c1c1f; border-radius: 5px;">
+                <div style="font-size: 11px; color: #888;">الإجراء المقترح:</div>
+                <div style="color: #fbbf24; font-size: 13px;">إرسال فرقة التدخل السريع للموقع فوراً.</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
